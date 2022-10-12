@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   namespace :admin do
+    root to: "homes#top"
     resources :items, only: [:index, :snow, :new, :create, :edit, :update]
     resources :customers, only: [:index, :snow, :edit, :update]
     resources :orders, only: [:snow, :update]
@@ -13,8 +15,9 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  namespace :public do
-    get '/top' => 'homes#top'
+
+  scope module: :public do
+    root to: "homes#top"
     resources :items, only: [:index, :snow]
     get 'customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe_customer'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal_customer'
