@@ -1,0 +1,21 @@
+<table>
+  <thead>
+      <th class="table-secondary">商品名</th>
+      <th class="table-secondary">単価(税込)</th>
+      <th class="table-secondary">数量</th>
+      <th class="table-secondary">小計</th>
+      <th class="table-secondary"></th>
+  </thead>
+  <tbody>
+  <% @cart_items.each do |cart_item| %>
+      <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.with_tax_price %></td>
+          <td></td>
+          <td><%= cart_item.subtotal %></td>
+          <td><%= link_to '削除する', cart_itme_path(item.id), method: :delete, class: "btn btn-danger" %></td>
+          <% @合計金額 +=  cart_item.subtotal %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
