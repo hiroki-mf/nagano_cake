@@ -1,0 +1,25 @@
+<h4>商品一覧</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">商品ID</th>
+      <th scope="col">商品名</th>
+      <th scope="col">税抜価格</th>
+      <th scope="col"></th></th>
+    </tr>
+  </thead>
+
+  <% @items.each do |item| %>
+
+  <tbody>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

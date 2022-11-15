@@ -1,0 +1,24 @@
+<h4>商品詳細</h4>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+
+            <td>
+              <% if @item.image.attached? %>
+                <%= image_tag @item.image, size: "200x200" %>
+              <% else %>
+                <%= image_tag 'no_image', size: "200x200" %>
+              <% end %>
+            </td>
+
+            <td><%= @item.name %></td>
+
+            <td><%= @item.introduction %></td>
+
+            <td><%= @item.price %></td>
+
+            <td>
+              <button type="button" class="btn btn-sm btn-success">
+              <%= link_to "編集する",  edit_admin_item_path(@item.id), class: 'text-light' %>
+              </button>
+            </td>

@@ -1,0 +1,30 @@
+<h4>会員詳細</h4>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+
+            <td><%= @customer.id %></td>
+
+            <td><%= @customer.last_name %><%= @customer.first_name %></td>
+
+            <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+
+            <td><%= @customer.postal_code %></td>
+
+            <td><%= @customer.address %></td>
+
+            <td><%= @customer.telephone_number %></td>
+
+            <td><%= @customer.email %></td>
+
+            <td>
+              <button type="button" class="btn btn-sm btn-success">
+              <%= link_to "編集する",   edit_admin_customer_path(@customer.id), class: 'text-light' %>
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-primary">
+              <%= link_to "注文履歴一覧を見る",  admin_order_path(@customer.id), class: 'text-light' %>
+              </button>
+            </td>
